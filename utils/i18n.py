@@ -3,11 +3,11 @@ import os
 from locale import getdefaultlocale
 import streamlit as st
 
-
 LOCALE_DIR = os.path.join(os.path.dirname(__file__), 'locales')
 
-#chache translate
+# chache translate
 _translations = {}
+
 
 def load_translations(lang: str):
     """
@@ -24,6 +24,7 @@ def load_translations(lang: str):
         return translation
     except FileNotFoundError:
         return gettext.NullTranslations()
+
 
 def _(key: str):
     lang = st.session_state.get("language")
