@@ -1,6 +1,7 @@
 import streamlit as st
 
-from modules.authorization import login, register, settings_page
+from modules.authorization import login, register
+from modules.user_settings import settings_page
 
 
 # --- Главная страница ---

@@ -39,21 +39,3 @@ def register():
             }
             save_users(users)
             st.success("Аккаунт создан!")
-
-# --- Настройки пользователя ---
-def settings_page():
-    st.title("Настройки")
-
-    lang = st.selectbox("Выберите язык", ["Русский", "English"])
-    theme = st.selectbox("Тема интерфейса", ["light", "dark"])
-
-    if st.form_submit_button("Сохранить настройки"):
-        users = load_users()
-        user = st.session_state["username"]
-        users[user]["settings"] = {
-            "language": "ru" if lang == "Русский" else "en",
-            "theme": theme
-        }
-        save_users(users)
-        st.session_state["settings"] = users[user]["settings"]
-        st.success("Настройки сохранены!")
