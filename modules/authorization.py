@@ -3,8 +3,13 @@ import streamlit as st
 from utils.hash_pass import hash_password
 from utils.user_file import load_users, save_users
 
+
 # --- Логика входа ---
 def login():
+    """
+    The page login in.
+    :return:
+    """
     st.subheader("Войти")
     username = st.text_input("Логин")
     password = st.text_input("Пароль", type="password")
@@ -19,8 +24,13 @@ def login():
         else:
             st.error("Неверный логин или пароль")
 
+
 # --- Регистрация ---
 def register():
+    """
+    The page register.
+    :return:
+    """
     st.subheader("Зарегистрироваться")
     new_user = st.text_input("Новый логин")
     new_password = st.text_input("Новый пароль", type="password")
