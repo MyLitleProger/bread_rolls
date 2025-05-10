@@ -8,6 +8,8 @@ def main_app():
     st.title("Добро пожаловать в Bread Rolls!")
     st.write("Вы вошли как:", st.session_state["username"])
     st.write("Настройки:", st.session_state["settings"])
+    if st.form_submit_button("Выйти"):
+        st.session_state.clear()
 
 # --- Точка входа ---
 def main():
