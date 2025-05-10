@@ -3,21 +3,21 @@ import streamlit as st
 from modules.authorization import login, register
 from modules.user_settings import settings_page
 
+from utils.i18n import _
 
-# --- Главная страница ---
+
 def main_app():
     """
     The page with general menu.
     :return:
     """
-    st.title("Добро пожаловать в Bread Rolls!")
-    st.write("Вы вошли как:", st.session_state["username"])
-    st.write("Настройки:", st.session_state["settings"])
-    if st.form_submit_button("Выйти"):
+    st.title(_("Добро пожаловать в Bread Rolls!"))
+    st.write(_("Вы вошли как:"), st.session_state["username"])
+    st.write(_("Настройки:"), st.session_state["settings"])
+    if st.form_submit_button(_("Выйти")):
         st.session_state.clear()
 
 
-# --- Точка входа ---
 def main():
     """
     The parent page with callbacks, where check session state.
@@ -28,20 +28,20 @@ def main():
             st.session_state["logged_in"] = False
 
         if not st.session_state["logged_in"]:
-            option = st.sidebar.selectbox("Вход / Регистрация", ["Войти", "Зарегистрироваться"])
-            if option == "Войти":
+            option = st.sidebar.selectbox(_("Вход / Регистрация"), [_("Войти"), _("Зарегистрироваться")])
+            if option == _("Войти"):
                 login()
             else:
                 register()
         else:
-            st.sidebar.write("Привет,", st.session_state["username"])
-            page = st.sidebar.radio("Перейти", ["Главная", "Настройки", "Выйти"])
+            st.sidebar.write(_("Привет,"), st.session_state["username"])
+            page = st.sidebar.radio(_("Перейти"), [_("Главная"), _("Настройки"), _("Выйти")])
 
-            if page == "Главная":
+            if page == _("Главная"):
                 main_app()
-            elif page == "Настройки":
+            elif page == _("Настройки"):
                 settings_page()
-            elif page == "Выйти":
+            elif page == _("Выйти"):
                 st.session_state.clear()
 
 if __name__ == '__main__':
