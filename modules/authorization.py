@@ -1,24 +1,7 @@
 import streamlit as st
-import json
-import hashlib
 
-
-# --- Утилиты ---
-def hash_password(password):
-    return hashlib.sha256(password.encode()).hexdigest()
-
-# --- Загрузка пользователей ---
-def load_users():
-    try:
-        with open("users.json", "r") as f:
-            return json.load(f)
-    except FileNotFoundError:
-        return {}
-
-# --- Сохранение пользователей ---
-def save_users(users_db):
-    with open("users.json", "w") as f:
-        json.dump(users_db, f, indent=4)
+from utils.hash_pass import hash_password
+from utils.user_file import load_users, save_users
 
 # --- Логика входа ---
 def login():
