@@ -43,3 +43,6 @@ def main():
                 settings_page()
             elif page == "Выйти":
                 st.session_state.clear()
+
+if __name__ == '__main__':
+    main()

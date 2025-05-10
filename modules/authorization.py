@@ -16,13 +16,16 @@ def login():
 
     if st.form_submit_button("Войти"):
         users = load_users()
-        if username in users and users[username]["password"] == hash_password(password):
-            st.success("Вы вошли!")
-            st.session_state["logged_in"] = True
-            st.session_state["username"] = username
-            st.session_state["settings"] = users[username]["settings"]
+        if users is not None:
+            if username in users and users[username]["password"] == hash_password(password):
+                st.success("Вы вошли!")
+                st.session_state["logged_in"] = True
+                st.session_state["username"] = username
+                st.session_state["settings"] = users[username]["settings"]
+            else:
+                st.error("Неверный логин или пароль")
         else:
-            st.error("Неверный логин или пароль")
+            st.error("This user doesn't exist!")
 
 
 # --- Регистрация ---
@@ -32,20 +35,33 @@ def register():
     :return:
     """
     st.subheader("Зарегистрироваться")
-    new_user = st.text_input("Новый логин")
-    new_password = st.text_input("Новый пароль", type="password")
+    new_user = st.text_input("Login")
+    first_name = st.text_input("First name")
+    last_name = st.text_input("Last name")
+    email = st.text_input("Email")
+    new_password = st.text_input("Password", type="password")
+    check_password = st.text_input("Repeat the password", type="password")
+    country = st.selectbox("Country", )
 
-    if st.form_submit_button("Зарегистрироваться"):
+    if new_password != check_password:
+        st.warning("Passwords don't match")
+
+    if st.form_submit_button("Зарегистрироваться") and new_password == check_password:
         users = load_users()
         if new_user in users:
             st.warning("Этот логин уже занят")
         else:
             users[new_user] = {
+                "email": email,
+                "first_name": first_name,
+                "last_name": last_name,
+                "country": country,
                 "password": hash_password(new_password),
                 "settings": {
-                    "language": "ru",
+                    "language": "en",
                     "theme": "dark"
                 }
             }
             save_users(users)
             st.success("Аккаунт создан!")
+
