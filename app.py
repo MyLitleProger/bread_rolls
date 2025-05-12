@@ -11,10 +11,10 @@ def main_app():
     The page with general menu.
     :return:
     """
-    st.title(_("Добро пожаловать в Bread Rolls!"))
-    st.write(_("Вы вошли как:"), st.session_state["username"])
-    st.write(_("Настройки:"), st.session_state["settings"])
-    if st.form_submit_button(_("Выйти")):
+    st.title(_("Wellcome at the Bread Rolls!"))
+    st.write(_("You entered as: "), st.session_state["username"])
+    st.write(_("Settings:"), st.session_state["settings"])
+    if st.form_submit_button(_("Sign out")):
         st.session_state.clear()
 
 
@@ -28,20 +28,20 @@ def main():
             st.session_state["logged_in"] = False
 
         if not st.session_state["logged_in"]:
-            option = st.sidebar.selectbox(_("Вход / Регистрация"), [_("Войти"), _("Зарегистрироваться")])
-            if option == _("Войти"):
+            option = st.sidebar.selectbox(_("Sign in / Sign up"), [_("Sign in"), _("Sign up")])
+            if option == _("Sign in"):
                 login()
             else:
                 register()
         else:
-            st.sidebar.write(_("Привет,"), st.session_state["username"])
-            page = st.sidebar.radio(_("Перейти"), [_("Главная"), _("Настройки"), _("Выйти")])
+            st.sidebar.write(_("Hello,"), st.session_state["username"])
+            page = st.sidebar.radio(_("Menu"), [_("Home"), _("Settings"), _("Sing out")])
 
-            if page == _("Главная"):
+            if page == _("Home"):
                 main_app()
-            elif page == _("Настройки"):
+            elif page == _("Settings"):
                 settings_page()
-            elif page == _("Выйти"):
+            elif page == _("Sing out"):
                 st.session_state.clear()
 
 if __name__ == '__main__':
