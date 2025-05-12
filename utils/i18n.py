@@ -3,7 +3,8 @@ import os
 from locale import getdefaultlocale
 import streamlit as st
 
-LOCALE_DIR = os.path.join(os.path.dirname(__file__), 'locales')
+PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
+LOCALE_DIR = os.path.join(PROJECT_ROOT, 'locales')
 
 # chache translate
 _translations = {}
@@ -19,20 +20,20 @@ def load_translations(lang: str):
         return _translations[lang]
 
     try:
-        translation = gettext.translation("messages", LOCALE_DIR, languages=[lang], fallback=True)
+        translation = gettext.translation("messages", LOCALE_DIR, languages=[lang])
         _translations[lang] = translation
         return translation
     except FileNotFoundError:
+        print(f"Translation file not found for {lang}")
         return gettext.NullTranslations()
 
 
 def _(key: str):
-    lang = st.session_state.get("language")
+    lang = st.session_state.get("settings", {}).get("language", "en")
 
     if not lang:
-        system_lang = getdefaultlocale()[0][:2]
-        lang = system_lang if system_lang in ["en", "ru"] else "en"
-        st.session_state["language"] = lang
+        lang = "en"
+        st.session_state["settings"]["language"] = lang
 
     translation = load_translations(lang)
     result = translation.gettext(key)
