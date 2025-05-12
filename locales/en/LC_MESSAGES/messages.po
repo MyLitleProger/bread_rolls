@@ -1,0 +1,140 @@
+# English translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-05-12 14:38+0300\n"
+"PO-Revision-Date: 2025-05-12 14:40+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: app.py:14
+msgid "Wellcome at the Bread Rolls!"
+msgstr ""
+
+#: app.py:15
+msgid "You entered as: "
+msgstr ""
+
+#: app.py:16
+msgid "Settings:"
+msgstr ""
+
+#: app.py:17
+msgid "Sign out"
+msgstr ""
+
+#: app.py:31
+msgid "Sign in / Sign up"
+msgstr ""
+
+#: app.py:31 app.py:32
+msgid "Sign in"
+msgstr ""
+
+#: app.py:31
+msgid "Sign up"
+msgstr ""
+
+#: app.py:37
+msgid "Hello,"
+msgstr ""
+
+#: app.py:38
+msgid "Menu"
+msgstr ""
+
+#: app.py:38 app.py:40
+msgid "Home"
+msgstr ""
+
+#: app.py:38 app.py:42
+msgid "Settings"
+msgstr ""
+
+#: app.py:38 app.py:44
+msgid "Sing out"
+msgstr ""
+
+#: modules/authorization.py:15 modules/authorization.py:19
+msgid "SING IN"
+msgstr ""
+
+#: modules/authorization.py:16 modules/authorization.py:39
+msgid "Login"
+msgstr ""
+
+#: modules/authorization.py:17 modules/authorization.py:43
+msgid "Password"
+msgstr ""
+
+#: modules/authorization.py:23
+msgid "You are now logged in!"
+msgstr ""
+
+#: modules/authorization.py:28
+msgid "Invalid password!"
+msgstr ""
+
+#: modules/authorization.py:30
+msgid "This user doesn't exist!"
+msgstr ""
+
+#: modules/authorization.py:38 modules/authorization.py:51
+msgid "SIGN UP"
+msgstr ""
+
+#: modules/authorization.py:39
+msgid "JohnJordan"
+msgstr ""
+
+#: modules/authorization.py:40
+msgid "First name"
+msgstr ""
+
+#: modules/authorization.py:40
+msgid "John"
+msgstr ""
+
+#: modules/authorization.py:41
+msgid "Last name"
+msgstr ""
+
+#: modules/authorization.py:41
+msgid "Jordan"
+msgstr ""
+
+#: modules/authorization.py:42
+msgid "Email"
+msgstr ""
+
+#: modules/authorization.py:42
+msgid "JohnJordan@mail.com"
+msgstr ""
+
+#: modules/authorization.py:44
+msgid "Repeat the password"
+msgstr ""
+
+#: modules/authorization.py:49
+msgid "Passwords don't match"
+msgstr ""
+
+#: modules/authorization.py:54
+msgid "This user already exists!"
+msgstr ""
+
+#: modules/authorization.py:68
+msgid "Account created successfully!"
+msgstr ""
+

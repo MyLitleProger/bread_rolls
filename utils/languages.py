@@ -5,7 +5,7 @@ The list will be updated in the features.
 
 languages = [
     "English",
-    "Russian",
+    "Русский",
 ]
 
 all_lang = [
