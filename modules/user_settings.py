@@ -1,6 +1,8 @@
 import streamlit as st
 
 from utils.user_file import load_users, save_users
+from utils.languages import languages
+from utils.theme import themes
 
 
 # --- Настройки пользователя ---
@@ -12,14 +14,14 @@ def settings_page():
     """
     st.title("Настройки")
 
-    lang = st.selectbox("Выберите язык", ["Русский", "English"])
-    theme = st.selectbox("Тема интерфейса", ["light", "dark"])
+    lang = st.selectbox("Select language", languages)
+    theme = st.selectbox("Theme", themes)
 
     if st.form_submit_button("Сохранить настройки"):
         users = load_users()
         user = st.session_state["username"]
         users[user]["settings"] = {
-            "language": "ru" if lang == "Русский" else "en",
+            "language": "ru" if lang == "Русский" else "en",    # todo: temporary
             "theme": theme
         }
         save_users(users)
